@@ -1,0 +1,15 @@
+<%= link_to "Back to Recipes", recipes_path %>
+<h1><%= @recipe.title %></h1>
+<p><%= @recipe.description %></p>
+<ol>
+  <% @recipe.ingredients.each do |ing| %>
+    <li><%= ing.name %> - <%= ing.quantity %></li>
+  <% end %>
+</ol>
+<div class="actions">
+  <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-secondary" %>
+  <%= link_to "Delete",recipe_path(@recipe),
+  data: { turbo_method: :delete, turbo_confirm: "Are your sure?" },
+  class: "btn btn-danger"
+%>
+</div>

@@ -1,0 +1,16 @@
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <div class="row align-items-center">
+    <div class="col-5">
+      <%= f.input :name, input_html: { class: "form-control-sm" } %>
+    </div>
+    <div class="col-5">
+      <%= f.input :quantity, input_html: { class: "form-control-sm" } %>
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn mt-3" data-action="nested-form#remove">
+        <i class="bi bi-trash-fill text-danger" data-action="nested-form#remove"></i>
+      </button>
+      <%= f.hidden_field :_destroy %>
+    </div>
+  </div>
+</div>

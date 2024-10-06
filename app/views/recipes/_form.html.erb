@@ -1,0 +1,16 @@
+<%= simple_form_for recipe, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= tag.h3 "Ingredients" %>
+  <template data-nested-form-target="template">
+    <%= f.simple_fields_for :ingredients, Ingredient.new, child_index: 'NEW_RECORD' do |ing_f| %>
+      <%= render "ing_form", f: ing_f %>
+    <% end %>
+  </template>
+  <%= f.simple_fields_for :ingredients do |ing_f| %>
+    <%= render "ing_form", f: ing_f %>
+  <% end %>
+  <div data-nested-form-target="target"></div>
+  <button type="button" data-action="nested-form#add" class="btn btn-secondary">Add todo</button>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
