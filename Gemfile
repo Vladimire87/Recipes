@@ -60,6 +60,6 @@ end
 
 gem "simple_form", "~> 5.3"
 
-gem "pagy", "~> 9.1"
+gem "pagy", "~> 9.2"
 
 gem "ransack", "~> 4.2"
